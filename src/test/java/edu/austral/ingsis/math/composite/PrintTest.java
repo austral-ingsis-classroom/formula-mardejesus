@@ -36,7 +36,9 @@ public class PrintTest {
     final Function function2 = new Valor(2);
     final Function function3 = new Valor(3);
     final String expected = "(9.0 / 2.0) * 3.0";
-    final String result = new Multiplicacion(new Parentesis(new Division(function1,function2)), function3).printValue();
+    final String result =
+        new Multiplicacion(new Parentesis(new Division(function1, function2)), function3)
+            .printValue();
     assertThat(result, equalTo(expected));
   }
 
@@ -47,7 +49,8 @@ public class PrintTest {
     final Function function1 = new Valor(27);
     final Function function2 = new Valor(6);
     final Function function3 = new Valor(2);
-    final String result = new Potencia(new Parentesis(new Division(function1,function2)), function3).printValue();
+    final String result =
+        new Potencia(new Parentesis(new Division(function1, function2)), function3).printValue();
 
     assertThat(result, equalTo(expected));
   }
@@ -77,7 +80,8 @@ public class PrintTest {
     final Function function1 = new Valor(5);
     final Function function2 = new Variable("i");
     final Function function3 = new Valor(8);
-    final String result = new Multiplicacion(new Parentesis(new Resta(function1, function2)), function3).printValue();
+    final String result =
+        new Multiplicacion(new Parentesis(new Resta(function1, function2)), function3).printValue();
     assertThat(result, equalTo(expected));
   }
 }

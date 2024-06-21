@@ -25,7 +25,6 @@ public class ResolutionTest {
     final Function function2 = new Valor(2);
     final Function result = new Division(function1, function2);
     assertThat(result.solve(null), equalTo(6d));
-
   }
 
   /** Case (9 / 2) * 3 */
@@ -63,7 +62,7 @@ public class ResolutionTest {
   @Test
   public void shouldResolveSimpleFunction6() {
     final Function function1 = new Valor(136);
-    final Function result =new Modulo(function1);
+    final Function result = new Modulo(function1);
     assertThat(result.solve(null), equalTo(136d));
   }
 
@@ -71,7 +70,7 @@ public class ResolutionTest {
   @Test
   public void shouldResolveSimpleFunction7() {
     final Function function1 = new Valor(-136);
-    final Function result =new Modulo(function1);
+    final Function result = new Modulo(function1);
     assertThat(result.solve(null), equalTo(136d));
   }
 

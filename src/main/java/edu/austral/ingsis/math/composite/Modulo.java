@@ -1,29 +1,29 @@
 package edu.austral.ingsis.math.composite;
-import edu.austral.ingsis.math.Function;
 
+import edu.austral.ingsis.math.Function;
 import java.util.List;
 import java.util.Map;
 
 public class Modulo implements Function {
 
-    Function function;
+  Function function;
 
-    public Modulo (Function function){
-        this.function = function;
-    }
+  public Modulo(Function function) {
+    this.function = function;
+  }
 
-    @Override
-    public double solve(Map<String, Double> variables) {
-        return Math.abs(function.solve(variables));
-    }
+  @Override
+  public double solve(Map<String, Double> variables) {
+    return Math.abs(function.solve(variables));
+  }
 
-    @Override
-    public String printValue() {
-        return "|" + function.printValue() + "|";
-    }
+  @Override
+  public String printValue() {
+    return "|" + function.printValue() + "|";
+  }
 
-    @Override
-    public List<String> getVariables(List<String> list) {
-        return function.getVariables(list);
-    }
+  @Override
+  public List<String> getVariables(List<String> list) {
+    return function.getVariables(list);
+  }
 }

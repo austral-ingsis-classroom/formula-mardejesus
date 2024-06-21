@@ -5,11 +5,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import edu.austral.ingsis.math.Function;
 import edu.austral.ingsis.math.composite.operaciones.*;
-import org.junit.jupiter.api.Test;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import org.junit.jupiter.api.Test;
 
 public class ResolutionWithVariablesTest {
 
@@ -18,7 +17,8 @@ public class ResolutionWithVariablesTest {
   public void shouldResolveFunction1() {
     final Function function1 = new Valor(1);
     final Function function2 = new Variable("x");
-    final double result = new Suma(function1, function2).solve(new HashMap<>(Collections.singletonMap("x", 3.0)));
+    final double result =
+        new Suma(function1, function2).solve(new HashMap<>(Collections.singletonMap("x", 3.0)));
     assertThat(result, equalTo(4d));
   }
 
@@ -27,7 +27,9 @@ public class ResolutionWithVariablesTest {
   public void shouldResolveFunction2() {
     final Function function1 = new Valor(12);
     final Function function2 = new Variable("div");
-    final Double result = new Division(function1, function2).solve(new HashMap<>(Collections.singletonMap("div", 4.0)));
+    final Double result =
+        new Division(function1, function2)
+            .solve(new HashMap<>(Collections.singletonMap("div", 4.0)));
     assertThat(result, equalTo(3d));
   }
 
@@ -40,7 +42,8 @@ public class ResolutionWithVariablesTest {
     Map<String, Double> variables = new HashMap<>();
     variables.put("x", 3.0);
     variables.put("y", 4.0);
-    final Double result = new Multiplicacion(new Division(function1, function2), function3).solve(variables);
+    final Double result =
+        new Multiplicacion(new Division(function1, function2), function3).solve(variables);
     assertThat(result, equalTo(12d));
   }
 
@@ -52,7 +55,7 @@ public class ResolutionWithVariablesTest {
     final Function function3 = new Variable("b");
     Map<String, Double> variables = new HashMap<>();
     variables.put("a", 9.0);
-    variables.put ("b", 3.0);
+    variables.put("b", 3.0);
     final Function result1 = new Division(function1, function2);
     final Double result = new Potencia(result1, function3).solve(variables);
     assertThat(result, equalTo(27d));
@@ -74,7 +77,9 @@ public class ResolutionWithVariablesTest {
   public void shouldResolveFunction6() {
     final Function function1 = new Variable("value");
     final Function function2 = new Valor(8.0);
-    final double result = new Resta(new Modulo(function1), function2).solve(new HashMap<>(Collections.singletonMap("value", 8.0)));
+    final double result =
+        new Resta(new Modulo(function1), function2)
+            .solve(new HashMap<>(Collections.singletonMap("value", 8.0)));
     assertThat(result, equalTo(0d));
   }
 
@@ -83,7 +88,9 @@ public class ResolutionWithVariablesTest {
   public void shouldResolveFunction7() {
     final Function function1 = new Variable("value");
     final Function function2 = new Valor(8.0);
-    final double result = new Resta(new Modulo(function1), function2).solve(new HashMap<>(Collections.singletonMap("value", 8.0)));
+    final double result =
+        new Resta(new Modulo(function1), function2)
+            .solve(new HashMap<>(Collections.singletonMap("value", 8.0)));
     assertThat(result, equalTo(0d));
   }
 
@@ -93,7 +100,9 @@ public class ResolutionWithVariablesTest {
     final Function function1 = new Valor(5);
     final Function function2 = new Variable("i");
     final Function function3 = new Valor(8);
-    final double result = new Multiplicacion(new Resta(function1, function2), function3).solve(new HashMap<>(Collections.singletonMap("i", 2.0)));
+    final double result =
+        new Multiplicacion(new Resta(function1, function2), function3)
+            .solve(new HashMap<>(Collections.singletonMap("i", 2.0)));
     assertThat(result, equalTo(24d));
   }
 }
