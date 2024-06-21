@@ -1,0 +1,72 @@
+@startuml
+top to bottom direction
+
+interface Function{
+  + printValue(): String
+  + getVariables(List<String>): List<String>
+  + solve(Map<String, Double>): double
+}
+interface Operacion extends Function
+
+class Division implements Operacion{
+   + Division(Function, Function):
+   + printValue(): String
+   + getVariables(List<String>): List<String>
+   + solve(Map<String, Double>): double
+ }
+class Multiplicacion implements Operacion{
+  + Multiplicacion(Function, Function): 
+  + getVariables(List<String>): List<String>
+  + printValue(): String
+  + solve(Map<String, Double>): double
+}
+class Suma implements Operacion{
+    + Suma(Function, Function):
+    + solve(Map<String, Double>): double
+    + getVariables(List<String>): List<String>
+    + printValue(): String
+  }
+class Resta implements Operacion{
+   + Resta(Function, Function):
+   + solve(Map<String, Double>): double
+   + printValue(): String
+   + getVariables(List<String>): List<String>
+ }
+class Potencia implements Operacion{
+  + Potencia(Function, Function):
+  + solve(Map<String, Double>): double
+  + getVariables(List<String>): List<String>
+  + printValue(): String
+}
+
+class Modulo implements Function{
+  + Modulo(Function):
+  + getVariables(List<String>): List<String>
+  + solve(Map<String, Double>): double
+  + printValue(): String
+}
+class Parentesis implements Function{
+  + Parentesis(Function): 
+  + printValue(): String
+  + getVariables(List<String>): List<String>
+  + solve(Map<String, Double>): double
+}
+class RaizCuadrada implements Function{
+  + RaizCuadrada(Function): 
+  + printValue(): String
+  + getVariables(List<String>): List<String>
+  + solve(Map<String, Double>): double
+}
+class Valor implements Function{
+  + Valor(double): 
+  + solve(Map<String, Double>): double
+  + printValue(): String
+  + getVariables(List<String>): List<String>
+}
+class Variable implements Function{
+  + Variable(String): 
+  + solve(Map<String, Double>): double
+  + getVariables(List<String>): List<String>
+  + printValue(): String
+}
+@enduml
